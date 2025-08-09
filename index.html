@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Knowledge Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container container" id="loginContainer">
+        <div class="login-header">
+            <h1>Christian Knowledge Quiz</h1>
+            <p class="subtitle">Test your knowledge of Christian faith and doctrine</p>
+        </div>
+
+        <div class="welcome-message">
+            📚 Welcome to the comprehensive Christian Knowledge quiz! Please enter your details below to begin your assessment.
+        </div>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <label for="studentName">Full Name *</label>
+                <input 
+                    type="text" 
+                    id="studentName" 
+                    name="studentName" 
+                    required
+                    placeholder="Enter your full name"
+                    minlength="2"
+                    maxlength="50"
+                >
+                <div class="error-message" id="nameError">Please enter a valid name (2-50 characters)</div>
+            </div>
+
+            <div class="form-group">
+                <label for="registrationNumber">Registration Number *</label>
+                <input 
+                    type="text" 
+                    id="registrationNumber" 
+                    name="registrationNumber" 
+                    required
+                    placeholder="Enter your registration number"
+                    pattern="[A-Za-z0-9\-/]+"
+                    minlength="3"
+                    maxlength="20"
+                >
+                <div class="error-message" id="regError">Please enter a valid registration number (3-20 characters, letters, numbers, hyphens, and slashes allowed)</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="loginBtn">
+                🚀 Start Quiz
+            </button>
+        </form>
+
+        <div class="login-info">
+            <p><strong>Quiz Information:</strong></p>
+            <ul>
+                <li>⏱️ Time Limit: 30 minutes</li>
+                <li>❓ Total Questions: 60</li>
+                <li>📝 Multiple choice format</li>
+                <li>⚠️ Do not leave this tab during the quiz</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container container" id="quizContainer">
+        <header>
+            <h1 class="quiz-title">Christian Knowledge Quiz</h1>
+            <p class="quiz-subtitle">Test your knowledge of Christian faith and doctrine</p>
+            
+            <div class="user-info" id="userInfo">
+                <div>
+                    <span id="displayName"></span> | <span id="displayReg"></span>
+                </div>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+
+            <div class="warning">
+                ⚠️ Answer all questions carefully. Do not leave this tab or the test will automatically submit after the time limit.
+            </div>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-info">
+                <div class="question-counter">
+                    Question <span id="currentQuestion">1</span> of <span id="totalQuestions">60</span>
+                </div>
+                <div class="timer" id="timer">Time: 30:00</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <form id="quizForm">
+            <!-- Questions will be inserted here by JavaScript -->
+        </form>
+
+        <div class="navigation">
+            <button type="button" class="btn btn-secondary" id="prevBtn" disabled>
+                ← Previous
+            </button>
+            <button type="button" class="btn btn-primary" id="nextBtn">
+                Next →
+            </button>
+            <button type="button" class="btn btn-primary" id="submitBtn" style="display: none;">
+                Submit Quiz
+            </button>
+        </div>
+
+        <div class="results" id="results">
+            <div class="score-circle">
+                <div class="score-text" id="scoreText">0%</div>
+            </div>
+            <div class="score-label" id="scoreLabel">Your Score</div>
+            <div class="performance-message" id="performanceMessage"></div>
+            <div class="student-details" id="studentDetails">
+                <p><strong>Student:</strong> <span id="resultName"></span></p>
+                <p><strong>Registration:</strong> <span id="resultReg"></span></p>
+            </div>
+            <button class="btn btn-primary" id="restartBtn">
+                🔄 Retake Quiz
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
